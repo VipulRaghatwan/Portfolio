@@ -66,7 +66,7 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-20 bg-background/90 backdrop-blur-sm rounded-2xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">

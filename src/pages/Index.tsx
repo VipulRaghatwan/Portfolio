@@ -12,14 +12,14 @@ const Index = () => {
   return (
     <div className="relative min-h-screen">
       <LiquidEther
-        colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-        mouseForce={20}
-        cursorSize={100}
+        colors={['#222744', '#3c1868', '#4b0082']}
+        mouseForce={15}
+        cursorSize={80}
         isViscous={false}
         autoDemo={true}
-        autoSpeed={0.5}
-        autoIntensity={2.2}
-        autoResumeDelay={3000}
+        autoSpeed={0.4}
+        autoIntensity={1.8}
+        autoResumeDelay={4000}
       />
       <Navigation />
       <Hero />
