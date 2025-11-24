@@ -1,12 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import LiquidEther from '@/components/LiquidEther';
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/sections/Hero';
+import About from '@/components/sections/About';
+import Skills from '@/components/sections/Skills';
+import Projects from '@/components/sections/Projects';
+import Education from '@/components/sections/Education';
+import Certificates from '@/components/sections/Certificates';
+import Contact from '@/components/sections/Contact';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative min-h-screen">
+      <LiquidEther
+        colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+        mouseForce={20}
+        cursorSize={100}
+        isViscous={false}
+        autoDemo={true}
+        autoSpeed={0.5}
+        autoIntensity={2.2}
+        autoResumeDelay={3000}
+      />
+      <Navigation />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Education />
+      <Certificates />
+      <Contact />
     </div>
   );
 };
