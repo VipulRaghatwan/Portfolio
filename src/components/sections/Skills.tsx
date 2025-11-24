@@ -54,7 +54,7 @@ const Skills = () => {
 
   return (
     <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden">
-      <div className="container mx-auto px-4 bg-background/90 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+      <div className="container mx-auto px-4">
         <h2 className="skills-title text-4xl md:text-5xl font-bold text-center mb-16">
           Skills & <span className="bg-gradient-primary bg-clip-text text-transparent">Expertise</span>
         </h2>
