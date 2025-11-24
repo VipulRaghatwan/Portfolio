@@ -64,8 +64,8 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" ref={sectionRef} className="py-20 bg-darker-surface">
-      <div className="container mx-auto px-4">
+    <section id="projects" ref={sectionRef} className="py-20 relative">
+      <div className="container mx-auto px-4 bg-background/90 backdrop-blur-sm rounded-2xl p-8 md:p-12">
         <h2 className="projects-title text-4xl md:text-5xl font-bold text-center mb-16">
           Featured <span className="bg-gradient-primary bg-clip-text text-transparent">Projects</span>
         </h2>
