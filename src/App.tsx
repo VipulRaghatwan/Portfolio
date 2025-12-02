@@ -6,6 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import LiquidEther from "@/components/LiquidEther";
+import Skills from "./components/sections/Skills";
+import Projects from "./components/sections/Projects";
+import Education from "./components/sections/Education";
+import { Certificate } from "crypto";
+import Certificates from "./components/sections/Certificates";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -13,13 +20,25 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+
+      {/* 🌟 FULL-SCREEN GLOBAL BACKGROUND ANIMATION */}
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <LiquidEther />
+      </div>
+
       <BrowserRouter>
         <Routes>
+          {/* Your pages */}
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/Skills" element={<Skills />} />
+          <Route path="/Projects" element={<Projects />} />
+          <Route path="/Education" element={<Education/>} />
+          <Route path="/Certificates" element={<Certificates/>} />
+          {/* Catch-all 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+
     </TooltipProvider>
   </QueryClientProvider>
 );

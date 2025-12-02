@@ -21,16 +21,19 @@ const Projects = () => {
         duration: 1,
       });
 
-      gsap.from('.project-card', {
-        scrollTrigger: {
-          trigger: '.project-card',
-          start: 'top 80%',
-        },
-        y: 100,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-      });
+      gsap.utils.toArray('.project-card').forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: 'top 85%',
+    },
+    y: 100,
+    opacity: 0,
+    duration: 0.8,
+    delay: i * 0.2,
+  });
+});
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -41,16 +44,16 @@ const Projects = () => {
       title: 'Investment Hub',
       description: 'A comprehensive platform for tracking and managing investment portfolios with real-time data analysis and visualization.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'PHP'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: '/Homepage1.html',
+      githubUrl: 'https://github.com/VipulRaghatwan/finalyearssssPRO/tree/main',
       gradient: 'from-blue-500 to-cyan-500',
     },
     {
       title: 'Expense Tracker',
       description: 'Modern expense tracking application with intuitive UI, category management, and detailed financial insights.',
       technologies: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://expensetracker-e539b.web.app/',
+      githubUrl: 'https://github.com/Apurv-15/expense_tracker_web',
       gradient: 'from-purple-500 to-pink-500',
     },
     {
@@ -58,7 +61,7 @@ const Projects = () => {
       description: 'Applicant Tracking System for optimizing resumes and analyzing compatibility with job descriptions.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/VipulRaghatwan/Resume-ATS-System',
       gradient: 'from-green-500 to-emerald-500',
     },
   ];

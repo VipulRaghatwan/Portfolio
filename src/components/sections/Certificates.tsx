@@ -1,126 +1,116 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
-gsap.registerPlugin(ScrollTrigger);
+
+import { useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
+import gsap from "gsap";
+
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 
 const Certificates = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+const swiperRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.certificates-title', {
-        scrollTrigger: {
-          trigger: '.certificates-title',
-          start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 1,
-      });
+const certificates = [
+{ img: "/src/assets/certificates/cdac.jpg", title: "Python for Web Development" },
+{ img: "/src/assets/certificates/mern stack.jpg", title: "MERN Stack Development" },
+{ img: "/src/assets/certificates/python.jpg", title: "Python Programming" },
+{ img: "/src/assets/certificates/Udemy certificate.jpg", title: "Ful Stack Web Development Certification" },
+];
 
-      gsap.from('.certificate-card', {
-        scrollTrigger: {
-          trigger: '.certificate-card',
-          start: 'top 80%',
-        },
-        scale: 0.9,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-      });
-    }, sectionRef);
+useEffect(() => {
+gsap.from(".certificate-slide img", {
+scale: 0.8,
+opacity: 0,
+duration: 1,
+stagger: 0.2,
+ease: "power2.out",
+});
 
-    return () => ctx.revert();
-  }, []);
 
-  const certificates = [
-    {
-      title: 'Full-Stack Web Development',
-      issuer: 'Platform Name',
-      year: '2024',
-      description: 'Comprehensive course covering modern web development practices and technologies.',
-      link: '#',
+gsap.to(".certificate-slide img", {
+  y: 10,
+  repeat: -1,
+  yoyo: true,
+  duration: 3,
+  ease: "sine.inOut",
+});
+
+
+}, []);
+
+return ( <section id="certificates" className="py-20 overflow-visible"> <h2 className="text-center text-5xl font-bold mb-6">Certificates</h2> <p className="text-center text-muted-foreground mb-10">
+Here are some of the certificates I've earned recently. </p>
+
+
+  <div className="w-full max-w-[1400px] mx-auto overflow-visible relative px-10">
+    <Swiper
+  ref={swiperRef}
+  effect="coverflow"
+  grabCursor={true}
+  centeredSlides={true}
+  loop={true}
+  autoplay={{
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: false,
+  }}
+  speed={3000}
+  breakpoints={{
+    0: {
+      slidesPerView: 1,
     },
-    {
-      title: 'React Advanced Patterns',
-      issuer: 'Platform Name',
-      year: '2024',
-      description: 'Advanced React concepts, hooks, state management, and performance optimization.',
-      link: '#',
+    480: {
+      slidesPerView: 1.3,
     },
-    {
-      title: 'Python for Data Science',
-      issuer: 'Platform Name',
-      year: '2023',
-      description: 'Data analysis, visualization, and machine learning fundamentals with Python.',
-      link: '#',
+    768: {
+      slidesPerView: 2,
     },
-    {
-      title: 'Backend Development with Node.js',
-      issuer: 'Platform Name',
-      year: '2023',
-      description: 'Building scalable backend APIs and services with Node.js and Express.',
-      link: '#',
+    1024: {
+      slidesPerView: 3,
     },
-  ];
+    1400: {
+      slidesPerView: 3.2,
+    },
+  }}
+  coverflowEffect={{
+    rotate: 25,
+    stretch: 0,
+    depth: 200,
+    modifier: 1,
+    slideShadows: true,
+  }}
+  navigation={true}
+  modules={[EffectCoverflow, Autoplay, Navigation]}
+  className="mySwiper"
+>
+  {certificates.map((cert, index) => (
+    <SwiperSlide
+      key={index}
+      className="certificate-slide flex justify-center items-center"
+      style={{ width: "300px", height: "380px" }}
+    >
+      <img
+        src={cert.img}
+        alt={cert.title}
+        className="w-full h-full object-contain rounded-xl shadow-xl"
+      />
+    </SwiperSlide>
+  ))}
+</Swiper>
 
-  return (
-    <section id="certificates" ref={sectionRef} className="py-20 relative">
-      <div className="container mx-auto px-4">
-        <h2 className="certificates-title text-4xl md:text-5xl font-bold text-center mb-16">
-          Certificates & <span className="bg-gradient-primary bg-clip-text text-transparent">Achievements</span>
-        </h2>
+  </div>
+</section>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {certificates.map((cert, index) => (
-            <div
-              key={index}
-              className="certificate-card bg-card rounded-lg p-6 border border-border hover:border-primary transition-all duration-300 group relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-primary opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity" />
-              <div className="relative">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Award className="text-primary" size={24} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {cert.issuer} • {cert.year}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4 text-sm">
-                  {cert.description}
-                </p>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10"
-                  asChild
-                >
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    View Certificate
-                    <ExternalLink size={14} />
-                  </a>
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+
+);
 };
 
 export default Certificates;
+
+
+
+
+
+

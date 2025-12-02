@@ -19,16 +19,18 @@ const Skills = () => {
         duration: 1,
       });
 
-      gsap.from('.skill-category', {
-        scrollTrigger: {
-          trigger: '.skill-category',
-          start: 'top 80%',
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-      });
+      gsap.utils.toArray(".project-card").forEach((card) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+    },
+    y: 100,
+    opacity: 0,
+    duration: 0.8,
+  });
+});
+
     }, sectionRef);
 
     return () => ctx.revert();

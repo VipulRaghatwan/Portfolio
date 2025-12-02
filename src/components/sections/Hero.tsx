@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profilePhoto from '@/assets/profile-photo.jpg';
+import { Typewriter } from 'react-simple-typewriter'
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -76,8 +77,16 @@ const Hero = () => {
             >
               Vipul Raghatwan
               <span className="block text-3xl md:text-5xl mt-2 bg-gradient-primary bg-clip-text text-transparent">
-                Full-Stack Software Engineer
-              </span>
+  <Typewriter
+    words={['Full-Stack Web Developer']}
+    loop={false}
+    cursor
+    cursorStyle="|"
+    typeSpeed={60}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</span>
             </h1>
             <p
               ref={subtitleRef}
@@ -105,7 +114,7 @@ const Hero = () => {
             </div>
             <div className="flex gap-4 justify-center lg:justify-start mt-8">
               <a
-                href="https://github.com"
+                href="https://github.com/VipulRaghatwan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground/60 hover:text-primary transition-colors"
@@ -113,18 +122,12 @@ const Hero = () => {
                 <Github size={24} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/vipul-raghatwan-5100a9325/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground/60 hover:text-primary transition-colors"
               >
                 <Linkedin size={24} />
-              </a>
-              <a
-                href="mailto:contact@example.com"
-                className="text-foreground/60 hover:text-primary transition-colors"
-              >
-                <Mail size={24} />
               </a>
             </div>
           </div>
@@ -135,7 +138,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-30 animate-pulse" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-glow-primary">
                 <img
-                  src={profilePhoto}
+                  src="src/assets/photo1.jpg"
                   alt="Vipul Raghatwan"
                   className="w-full h-full object-cover"
                 />

@@ -20,16 +20,18 @@ const Education = () => {
         duration: 1,
       });
 
-      gsap.from('.education-item', {
-        scrollTrigger: {
-          trigger: '.education-item',
-          start: 'top 80%',
-        },
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-      });
+      gsap.utils.toArray('.education-item').forEach((item) => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 85%',
+    },
+    x: -50,
+    opacity: 0,
+    duration: 0.8,
+  });
+});
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -39,12 +41,12 @@ const Education = () => {
     {
       institution: 'Vidyalankar Institute of Technology Mumbai',
       status: 'Pursuing',
-      description: 'Bachelor of Engineering in Computer Science',
+      description: 'Bachelor of Engineering in Information Technology',
     },
     {
       institution: "VPM's Polytechnic Thane",
       status: 'Completed',
-      description: 'Diploma in Computer Engineering',
+      description: 'Diploma in Information Technology',
     },
     {
       institution: 'DAV Public School Thane',
@@ -70,13 +72,18 @@ const Education = () => {
                 <GraduationCap className="text-white" size={24} />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                  {edu.institution}
-                </h3>
-                <p className="text-muted-foreground mb-2">{edu.description}</p>
-                <span className="inline-block text-sm bg-primary/10 text-primary px-3 py-1 rounded-full">
-                  {edu.status}
-                </span>
+                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-primary transition-colors">
+  {edu.institution}
+</h3>
+
+<p className="text-white/90 mb-2">
+  {edu.description}
+</p>
+
+<span className="inline-block text-sm bg-primary/20 text-primary px-3 py-1 rounded-full">
+  {edu.status}
+</span>
+
               </div>
             </div>
           ))}
