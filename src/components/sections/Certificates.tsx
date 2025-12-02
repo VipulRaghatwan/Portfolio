@@ -54,22 +54,24 @@ Here are some of the certificates I've earned recently. </p>
   loop={true}
 
   autoplay={{
-    delay: 1,
+    delay: 2000,                 // 2 seconds before next slide
     disableOnInteraction: false,
     pauseOnMouseEnter: false,
-    waitForTransition: false,
+    waitForTransition: true,     // smoother transitions
   }}
 
-  onSwiper={(swiper) => swiper.autoplay.start()}
+  speed={1200}                   // smooth sliding, not fast
 
-  speed={3000}
+  onSwiper={(swiper) => {
+    try { swiper.autoplay.start(); } catch (e) {}
+  }}
 
   breakpoints={{
     0: { slidesPerView: 1 },
-    480: { slidesPerView: 1.3 },
+    480: { slidesPerView: 1 },
     768: { slidesPerView: 2 },
     1024: { slidesPerView: 3 },
-    1400: { slidesPerView: 3.2 },
+    1400: { slidesPerView: 3 },
   }}
 
   coverflowEffect={{
@@ -84,6 +86,8 @@ Here are some of the certificates I've earned recently. </p>
   modules={[EffectCoverflow, Autoplay, Navigation]}
   className="mySwiper"
 >
+
+
 
   {certificates.map((cert, index) => (
     <SwiperSlide
