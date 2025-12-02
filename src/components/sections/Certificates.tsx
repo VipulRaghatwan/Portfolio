@@ -13,11 +13,12 @@ const Certificates = () => {
 const swiperRef = useRef(null);
 
 const certificates = [
-{ img: "/src/assets/certificates/cdac.jpg", title: "Python for Web Development" },
-{ img: "/src/assets/certificates/mern stack.jpg", title: "MERN Stack Development" },
-{ img: "/src/assets/certificates/python.jpg", title: "Python Programming" },
-{ img: "/src/assets/certificates/Udemy certificate.jpg", title: "Ful Stack Web Development Certification" },
+  { img: "/certificates/cdac.jpg", title: "Python for Web Development" },
+  { img: "/certificates/mern stack.jpg", title: "MERN Stack Development" },
+  { img: "/certificates/python.jpg", title: "Python Programming" },
+  { img: "/certificates/Udemy certificate.jpg", title: "Full Stack Web Development Certification" },
 ];
+
 
 useEffect(() => {
 gsap.from(".certificate-slide img", {
