@@ -95,23 +95,45 @@ const Hero = () => {
               Building seamless, scalable web experiences with modern technologies
               and a passion for elegant solutions.
             </p>
-            <div ref={ctaRef} className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                onClick={() => scrollToSection('projects')}
-                className="bg-primary hover:bg-primary/90 shadow-glow-primary"
-              >
-                View Projects
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection('contact')}
-                className="border-primary text-primary hover:bg-primary/10"
-              >
-                Contact Me
-              </Button>
-            </div>
+          {/* Email & Phone */}
+<div className="flex flex-col md:flex-row justify-center lg:justify-start items-center gap-6 text-gray-300 text-sm md:text-base mb-6">
+  <span>
+    📧 Email:{" "}
+    <a
+      href="mailto:vipulraghatwan6@gmail.com"
+      className="text-white hover:underline"
+    >
+      vipulraghatwan6@gmail.com
+    </a>
+  </span>
+  <span>
+    📞 Phone:{" "}
+    <a href="tel:+917506894066" className="text-white hover:underline">
+      +91 7506894066
+    </a>
+  </span>
+</div>
+
+{/* Buttons */}
+<div ref={ctaRef} className="flex flex-wrap gap-4 justify-center lg:justify-start">
+  <Button
+    size="lg"
+    className="bg-primary hover:bg-primary/90 shadow-glow-primary"
+    onClick={() => window.open('/Resume.pdf', '_blank')}
+  >
+    Check Resume
+  </Button>
+
+  <Button
+    size="lg"
+    variant="outline"
+    onClick={() => scrollToSection('contact')}
+    className="border-primary text-primary hover:bg-primary/10"
+  >
+    Contact Me
+  </Button>
+</div>
+
             <div className="flex gap-4 justify-center lg:justify-start mt-8">
               <a
                 href="https://github.com/VipulRaghatwan"
