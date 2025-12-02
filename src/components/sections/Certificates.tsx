@@ -13,9 +13,9 @@ const Certificates = () => {
 const swiperRef = useRef(null);
 
 const certificates = [
-  { img: "/certificates/cdac.jpg", title: "Python for Web Development" },
-  { img: "/certificates/mern stack.jpg", title: "MERN Stack Development" },
-  { img: "/certificates/python.jpg", title: "Python Programming" },
+  { img: "/certificates/CDAC.jpg", title: "Python for Web Development" },
+  { img: "/certificates/Mern Stack.jpg", title: "MERN Stack Development" },
+  { img: "/certificates/Python.jpg", title: "Python Programming" },
   { img: "/certificates/Udemy certificate.jpg", title: "Full Stack Web Development Certification" },
 ];
 

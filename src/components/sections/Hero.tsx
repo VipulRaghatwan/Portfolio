@@ -138,7 +138,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-30 animate-pulse" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-glow-primary">
                 <img
-                  src="src/assets/photo1.jpg"
+                  src="/photo1.jpg"
                   alt="Vipul Raghatwan"
                   className="w-full h-full object-cover"
                 />
