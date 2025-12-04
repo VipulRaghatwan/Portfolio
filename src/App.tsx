@@ -10,6 +10,7 @@ import LiquidEther from "@/components/LiquidEther";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Education from "./components/sections/Education";
+import Experience from '@/components/sections/Experience';
 import { Certificate } from "crypto";
 import Certificates from "./components/sections/Certificates";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/Skills" element={<Skills />} />
           <Route path="/Projects" element={<Projects />} />
           <Route path="/Education" element={<Education/>} />
+          <Route path="/Experience" element={<Experience/>} />
           <Route path="/Certificates" element={<Certificates/>} />
           {/* Catch-all 404 */}
           <Route path="*" element={<NotFound />} />
